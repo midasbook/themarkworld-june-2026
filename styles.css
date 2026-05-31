@@ -277,19 +277,19 @@ h1 {
   border-left: 8px solid var(--green);
 }
 
-.program:nth-child(2) {
+#touch {
   border-left-color: var(--brick);
 }
 
-.program:nth-child(3) {
+#senior {
   border-left-color: #2b73b8;
 }
 
-.program:nth-child(4) {
+#craft {
   border-left-color: #936f17;
 }
 
-.program:nth-child(5) {
+#lsp {
   border-left-color: var(--gold);
 }
 
