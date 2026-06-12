@@ -30,7 +30,29 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="auth-locked">
+    <section class="auth-screen" aria-label="관리자 비밀번호 입력">
+      <form class="auth-card" id="adminAuthForm">
+        <img src="assets/logo.png" alt="더마크월드" />
+        <p class="eyebrow">Admin Access</p>
+        <h1>관리자 페이지</h1>
+        <label class="field">
+          <span>비밀번호</span>
+          <input
+            id="adminPassword"
+            name="adminPassword"
+            type="password"
+            autocomplete="current-password"
+            required
+            placeholder="관리자 비밀번호"
+          />
+        </label>
+        <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+        <button class="button primary" type="submit">확인</button>
+        <a class="auth-link" href="index.html">투표 페이지로 이동</a>
+      </form>
+    </section>
+
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="더마크월드 일정 투표 홈">
         <img src="assets/logo.png" alt="더마크월드" />
@@ -40,6 +62,7 @@
         <a href="index.html#vote">투표 페이지</a>
         <a href="#opinions">의견 보기</a>
         <button class="nav-button" type="button" id="exportCsv">CSV 내보내기</button>
+        <button class="nav-button" type="button" id="adminLogout">잠금</button>
       </nav>
     </header>
 
@@ -121,6 +144,7 @@
       </section>
     </main>
 
+    <script src="admin-auth.js"></script>
     <script src="poll-data.js"></script>
     <script src="admin.js"></script>
   </body>
