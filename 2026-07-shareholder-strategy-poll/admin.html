@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>더마크월드 주주 전략회의 투표 결과</title>
+    <meta name="description" content="더마크월드 주주 전략회의 일정 투표 관리자 결과 페이지" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="더마크월드 일정 투표 홈">
+        <img src="assets/logo.png" alt="더마크월드" />
+        <span>더마크월드</span>
+      </a>
+      <nav class="top-nav" aria-label="상단 메뉴">
+        <a href="index.html#vote">투표 페이지</a>
+        <a href="#opinions">의견 보기</a>
+        <button class="nav-button" type="button" id="exportCsv">CSV 내보내기</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="admin-hero">
+        <div>
+          <p class="eyebrow">Admin Dashboard</p>
+          <h1>투표 결과 확인</h1>
+          <p class="lead">
+            제출자별 응답, 일정별 득표 현황, 모임 활동과 회의 주제 의견을 한 번에 확인합니다.
+          </p>
+        </div>
+        <div class="admin-actions">
+          <button class="button primary" type="button" id="refreshData">새로고침</button>
+          <button class="button danger" type="button" id="resetData">응답 초기화</button>
+        </div>
+      </section>
+
+      <section class="metric-grid" aria-label="투표 주요 지표">
+        <article class="metric">
+          <span>총 응답자</span>
+          <strong id="totalResponses">0명</strong>
+        </article>
+        <article class="metric">
+          <span>총 선택 수</span>
+          <strong id="totalSelections">0개</strong>
+        </article>
+        <article class="metric">
+          <span>1순위 일정</span>
+          <strong id="bestSlot">아직 없음</strong>
+        </article>
+      </section>
+
+      <section class="admin-grid">
+        <article class="result-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Schedule Ranking</p>
+            <h2>일정별 득표</h2>
+          </div>
+          <div class="result-list" id="slotResults"></div>
+        </article>
+
+        <article class="result-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Activities</p>
+            <h2>선호 활동</h2>
+          </div>
+          <div class="result-list" id="activityResults"></div>
+        </article>
+      </section>
+
+      <section class="result-panel" aria-label="응답자별 상세">
+        <div class="section-heading">
+          <p class="eyebrow">Named Responses</p>
+          <h2>응답자별 상세</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>성함</th>
+                <th>연락처</th>
+                <th>가능 일정</th>
+                <th>선호 활동</th>
+                <th>제출 시각</th>
+              </tr>
+            </thead>
+            <tbody id="responseRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="result-panel" id="opinions" aria-label="의견 목록">
+        <div class="section-heading">
+          <p class="eyebrow">Opinions</p>
+          <h2>회의 주제 및 기타 의견</h2>
+        </div>
+        <div class="opinion-list" id="opinionList"></div>
+      </section>
+    </main>
+
+    <script src="poll-data.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
