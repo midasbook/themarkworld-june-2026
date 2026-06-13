@@ -47,8 +47,8 @@
       </a>
       <nav class="top-nav" aria-label="상단 메뉴">
         <a href="#vote">일정 투표</a>
+        <a href="#publicResults">결과 확인</a>
         <a href="#opinion">의견 남기기</a>
-        <a href="admin.html">관리자 결과</a>
       </nav>
     </header>
 
@@ -59,11 +59,11 @@
           <h1>상반기 결산 및 재도약 전략회의</h1>
           <p class="lead">
             2026년 7월 1일(수)부터 7월 19일(일)까지 가능한 점심, 저녁 식사 일정을
-            기명으로 선택해 주세요. 모임 활동과 회의 주제에 대한 의견도 함께 받습니다.
+            기명으로 선택해 주세요. 투표 후 공개 결과를 바로 확인할 수 있습니다.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#vote">참석 가능 일정 투표</a>
-            <a class="button secondary" href="admin.html">결과 확인</a>
+            <a class="button secondary" href="#publicResults">현재 결과 보기</a>
           </div>
         </div>
         <aside class="hero-panel" aria-label="모임 정보">
@@ -163,7 +163,7 @@
 
           <div class="submit-row">
             <p id="formMessage" role="status" aria-live="polite"></p>
-            <button class="button primary" type="submit">투표 제출하기</button>
+            <button class="button primary" type="submit">투표 제출하고 결과 보기</button>
           </div>
         </form>
 
@@ -171,15 +171,73 @@
           <div class="summary-card">
             <span class="panel-label">현재 제출</span>
             <strong id="responseCount">0명</strong>
-            <p>이 브라우저에 저장된 응답 기준입니다.</p>
+            <p>이 페이지에 저장된 응답 기준입니다.</p>
           </div>
           <div class="summary-card">
             <span class="panel-label">가장 많이 선택된 일정</span>
             <strong id="topSlot">아직 없음</strong>
-            <p>관리자 페이지에서 상세 결과와 의견을 확인할 수 있습니다.</p>
+            <p>아래 공개 결과에서 상세 현황을 확인할 수 있습니다.</p>
           </div>
-          <a class="button secondary wide" href="admin.html">관리자 페이지 열기</a>
+          <a class="button secondary wide" href="#publicResults">공개 결과 보기</a>
         </aside>
+      </section>
+
+      <section class="result-panel public-results" id="publicResults" aria-label="공개 투표 결과">
+        <div class="section-heading">
+          <p class="eyebrow">Public Results</p>
+          <h2>투표 결과</h2>
+        </div>
+        <div class="metric-grid">
+          <article class="metric">
+            <span>총 응답자</span>
+            <strong id="publicTotalResponses">0명</strong>
+          </article>
+          <article class="metric">
+            <span>총 선택 수</span>
+            <strong id="publicTotalSelections">0개</strong>
+          </article>
+          <article class="metric">
+            <span>1순위 일정</span>
+            <strong id="publicBestSlot">아직 없음</strong>
+          </article>
+        </div>
+
+        <div class="admin-grid">
+          <article>
+            <div class="section-heading compact-result">
+              <p class="eyebrow">Schedule Ranking</p>
+              <h2>일정별 득표</h2>
+            </div>
+            <div class="result-list" id="publicSlotResults"></div>
+          </article>
+          <article>
+            <div class="section-heading compact-result">
+              <p class="eyebrow">Activities</p>
+              <h2>선호 활동</h2>
+            </div>
+            <div class="result-list" id="publicActivityResults"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="result-panel" aria-label="응답자별 공개 결과">
+        <div class="section-heading">
+          <p class="eyebrow">Named Responses</p>
+          <h2>응답자별 선택 일정</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>성함</th>
+                <th>가능 일정</th>
+                <th>선호 활동</th>
+                <th>회의 주제 및 의견</th>
+              </tr>
+            </thead>
+            <tbody id="publicResponseRows"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 
